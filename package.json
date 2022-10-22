@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc",
-    "styleslint": "npx stylelint '**/*.scss'",
+    "styleslint": "npx stylelint '**/*.scss'"
   },
   "dependencies": {
     "next": "12.3.1",
