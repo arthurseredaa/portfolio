@@ -4,8 +4,8 @@ module.exports = {
   extends: [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
+    "prettier",
   ],
   settings: {
     react: {
@@ -16,6 +16,7 @@ module.exports = {
     browser: true,
     node: true,
     es6: true,
+    es2021: true
   },
   plugins: ["@typescript-eslint", "react", "prettier"],
   parserOptions: {
@@ -38,5 +39,5 @@ module.exports = {
     // needed for NextJS's jsx without react import
     "react/react-in-jsx-scope": "off",
   },
-  globals: { React: "writable" },
+  globals: {React: "writable"},
 };
