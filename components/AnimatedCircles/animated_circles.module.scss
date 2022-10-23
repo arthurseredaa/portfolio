@@ -16,4 +16,9 @@
   position: absolute;
   inset: 0;
   margin: auto;
+  box-shadow: 0 0 10px #fff;
+}
+
+.clickable {
+  cursor: pointer;
 }

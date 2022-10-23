@@ -1,9 +1,10 @@
+import classNames from 'classnames';
 import { Variants, motion, useAnimation } from 'framer-motion';
 import React, { FC, useEffect } from 'react';
 
 import styles from './animated_circles.module.scss';
 
-const generateRandomVariants = (): Variants => {
+const generateRandomVariants = (order: number): Variants => {
 	const minValue = 0;
 	const maxValue = 400;
 
@@ -25,8 +26,9 @@ const generateRandomVariants = (): Variants => {
 		},
 
 		animate2: {
-			y: -randomAnimateValue,
+			y: -400 + order * 50,
 			x: 0,
+			opacity: 0.5,
 
 			transition: {
 				delay: 0.5,
@@ -62,6 +64,10 @@ const AnimatedCircles: FC<Props> = ({ isTitleHidden }) => {
 		}
 	}, [isTitleHidden]);
 
+	const circleClassNames = classNames(styles.circle, {
+		[styles.clickable]: isTitleHidden
+	});
+
 	return (
 		<div className={styles.circles_wrapper}>
 			{Array(5)
@@ -78,8 +84,8 @@ const AnimatedCircles: FC<Props> = ({ isTitleHidden }) => {
 							repeatType: 'mirror',
 							repeat: Infinity
 						}}
-						className={styles.circle}
-						variants={generateRandomVariants()}
+						className={circleClassNames}
+						variants={generateRandomVariants(index + 1)}
 					/>
 				))}
 		</div>

@@ -2,6 +2,7 @@ import { AnimatePresence, Variants, motion } from 'framer-motion';
 import React, { FC, useState } from 'react';
 
 import AnimatedCircles from '../AnimatedCircles/AnimatedCircles';
+import Header from '../Header/Header';
 
 import styles from './main.module.scss';
 
@@ -43,7 +44,7 @@ const Main: FC = () => {
 	const hideTitle = () => setShowTitle(false);
 
 	return (
-		<motion.div
+		<motion.section
 			variants={containerVariants}
 			initial='initial'
 			animate='animate'
@@ -51,6 +52,7 @@ const Main: FC = () => {
 			transition={{ duration: 0.7, type: 'spring' }}
 			className={styles.container}
 		>
+			<Header />
 			<div className={styles.content}>
 				<AnimatePresence>
 					{showTitle && (
@@ -69,7 +71,7 @@ const Main: FC = () => {
 				</AnimatePresence>
 				<AnimatedCircles isTitleHidden={!showTitle} />
 			</div>
-		</motion.div>
+		</motion.section>
 	);
 };
 
